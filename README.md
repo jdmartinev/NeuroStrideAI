@@ -12,6 +12,8 @@
 
 Este proyecto sigue la metodología **CRISP-DM** (Cross-Industry Standard Process for Data Mining), organizada en 6 fases iterativas:
 
+![CRISP-DM Pipeline](CRISP-DM.png)
+
 | Fase | Carpeta | Descripción |
 |------|---------|-------------|
 | 1. Entendimiento del problema | `1_business_understanding/` | Contexto clínico, objetivos, criterios de éxito |
