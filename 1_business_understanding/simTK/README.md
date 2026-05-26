@@ -8,7 +8,7 @@ La parálisis cerebral (PC) es un grupo de trastornos del movimiento y la postur
 
 ## Grupos clínicos del dataset
 
-El dataset contiene tres grupos. Ver diagrama: [figs/simtk_cp_child_gait_dataset_diagram.svg](figs/simtk_cp_child_gait_dataset_diagram.svg)
+El dataset contiene tres grupos. Ver diagrama:![sumtk data diagram](figs/simtk_cp_child_gait_dataset_diagram.svg)
 
 ### Hemiplejia espástica — n=5, edad 9.0 ± 2.3 años
 
