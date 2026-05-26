@@ -1,0 +1,164 @@
+<svg width="1400" height="850" viewBox="0 0 1400 850" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>SimTK cp-child-gait cohort and label structure</title>
+<desc>Improved technical diagram for the SimTK cp-child-gait dataset showing clinical groups, sample sizes, gait characteristics, sensor sources, labels and modeling tasks.</desc>
+
+<defs>
+  <style>
+    .title{font-family:Arial, Helvetica, sans-serif;font-size:34px;font-weight:700;fill:#111827}
+    .subtitle{font-family:Arial, Helvetica, sans-serif;font-size:18px;fill:#4b5563}
+    .section{font-family:Arial, Helvetica, sans-serif;font-size:19px;font-weight:700;fill:#111827}
+    .label{font-family:Arial, Helvetica, sans-serif;font-size:15px;font-weight:700;fill:#111827}
+    .small{font-family:Arial, Helvetica, sans-serif;font-size:13px;fill:#374151}
+    .tiny{font-family:Arial, Helvetica, sans-serif;font-size:12px;fill:#4b5563}
+    .white{fill:#ffffff}
+    .muted{fill:#6b7280}
+    .box{fill:#ffffff;stroke:#d1d5db;stroke-width:1.5}
+    .arrow{stroke:#374151;stroke-width:2;fill:none;marker-end:url(#arrow)}
+    .dash{stroke:#9ca3af;stroke-width:1.5;stroke-dasharray:6 5;fill:none}
+    .hemi{fill:#fee2e2;stroke:#dc2626}
+    .hemiDark{fill:#dc2626}
+    .di{fill:#ede9fe;stroke:#7c3aed}
+    .diDark{fill:#7c3aed}
+    .td{fill:#dcfce7;stroke:#16a34a}
+    .tdDark{fill:#16a34a}
+    .blue{fill:#dbeafe;stroke:#2563eb}
+    .blueDark{fill:#2563eb}
+    .amber{fill:#fef3c7;stroke:#d97706}
+    .amberDark{fill:#d97706}
+  </style>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#374151"/>
+  </marker>
+  <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+    <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000000" flood-opacity="0.12"/>
+  </filter>
+</defs>
+
+<rect width="1400" height="850" fill="#f8fafc"/>
+
+<!-- Header -->
+<text x="700" y="48" text-anchor="middle" class="title">SimTK cp-child-gait Dataset</text>
+<text x="700" y="78" text-anchor="middle" class="subtitle">Cohort structure, clinical labels, sensor sources, and modeling targets for pediatric CP gait analysis</text>
+
+<!-- Top overview -->
+<rect x="45" y="115" width="1310" height="125" rx="18" class="box" filter="url(#shadow)"/>
+<text x="75" y="150" class="section">Dataset overview</text>
+
+<g transform="translate(80,168)">
+  <rect x="0" y="0" width="200" height="50" rx="10" class="blue"/>
+  <text x="100" y="21" text-anchor="middle" class="label">14 children</text>
+  <text x="100" y="40" text-anchor="middle" class="tiny">TD + spastic CP</text>
+
+  <rect x="240" y="0" width="230" height="50" rx="10" class="amber"/>
+  <text x="355" y="21" text-anchor="middle" class="label">.c3d gait trials</text>
+  <text x="355" y="40" text-anchor="middle" class="tiny">subject-level recordings</text>
+
+  <rect x="510" y="0" width="250" height="50" rx="10" class="blue"/>
+  <text x="635" y="21" text-anchor="middle" class="label">VICON + AMTI</text>
+  <text x="635" y="40" text-anchor="middle" class="tiny">kinematics + GRF</text>
+
+  <rect x="800" y="0" width="230" height="50" rx="10" class="amber"/>
+  <text x="915" y="21" text-anchor="middle" class="label">FC / FO events</text>
+  <text x="915" y="40" text-anchor="middle" class="tiny">gait phase labels</text>
+
+  <rect x="1070" y="0" width="190" height="50" rx="10" class="blue"/>
+  <text x="1165" y="21" text-anchor="middle" class="label">LOSO protocol</text>
+  <text x="1165" y="40" text-anchor="middle" class="tiny">subject-wise testing</text>
+</g>
+
+<!-- Clinical groups -->
+<text x="700" y="285" text-anchor="middle" class="section">Clinical groups used as classification labels</text>
+
+<!-- Cards -->
+<g transform="translate(65,315)">
+  <!-- Hemi -->
+  <rect x="0" y="0" width="390" height="310" rx="18" class="hemi" filter="url(#shadow)"/>
+  <rect x="0" y="0" width="390" height="62" rx="18" class="hemiDark"/>
+  <text x="195" y="27" text-anchor="middle" class="white label" style="font-size:21px">HemiCP</text>
+  <text x="195" y="50" text-anchor="middle" class="white tiny">Spastic hemiplegia — unilateral involvement</text>
+  <circle cx="52" cy="104" r="26" fill="#fff" stroke="#dc2626" stroke-width="2"/>
+  <text x="52" y="112" text-anchor="middle" style="font-family:Arial;font-size:26px;font-weight:700;fill:#dc2626">5</text>
+  <text x="92" y="98" class="label">n = 5</text>
+  <text x="92" y="120" class="small">mean age: 9.00 ± 2.28 years</text>
+  <line x1="30" y1="145" x2="360" y2="145" stroke="#fecaca" stroke-width="2"/>
+  <text x="30" y="174" class="label">Observed gait characteristics</text>
+  <text x="45" y="205" class="small">• Left–right asymmetry</text>
+  <text x="45" y="230" class="small">• Unilateral altered kinematics</text>
+  <text x="45" y="255" class="small">• Asymmetric vertical GRF</text>
+  <text x="45" y="280" class="small">• Contralateral limb often closer to normal</text>
+
+  <!-- Di -->
+  <rect x="455" y="0" width="390" height="310" rx="18" class="di" filter="url(#shadow)"/>
+  <rect x="455" y="0" width="390" height="62" rx="18" class="diDark"/>
+  <text x="650" y="27" text-anchor="middle" class="white label" style="font-size:21px">DiCP</text>
+  <text x="650" y="50" text-anchor="middle" class="white tiny">Spastic diplegia — bilateral lower-limb involvement</text>
+  <circle cx="507" cy="104" r="26" fill="#fff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="507" y="112" text-anchor="middle" style="font-family:Arial;font-size:26px;font-weight:700;fill:#7c3aed">4</text>
+  <text x="547" y="98" class="label">n = 4</text>
+  <text x="547" y="120" class="small">mean age: 10.50 ± 1.66 years</text>
+  <line x1="485" y1="145" x2="815" y2="145" stroke="#ddd6fe" stroke-width="2"/>
+  <text x="485" y="174" class="label">Observed gait characteristics</text>
+  <text x="500" y="205" class="small">• Crouch gait / flexed-knee stance</text>
+  <text x="500" y="230" class="small">• Bilateral altered GRF profile</text>
+  <text x="500" y="255" class="small">• Reduced step length / narrow base</text>
+  <text x="500" y="280" class="small">• Jump gait or stiff-knee pattern possible</text>
+
+  <!-- TD -->
+  <rect x="910" y="0" width="390" height="310" rx="18" class="td" filter="url(#shadow)"/>
+  <rect x="910" y="0" width="390" height="62" rx="18" class="tdDark"/>
+  <text x="1105" y="27" text-anchor="middle" class="white label" style="font-size:21px">TD</text>
+  <text x="1105" y="50" text-anchor="middle" class="white tiny">Typically developing — control group</text>
+  <circle cx="962" cy="104" r="26" fill="#fff" stroke="#16a34a" stroke-width="2"/>
+  <text x="962" y="112" text-anchor="middle" style="font-family:Arial;font-size:26px;font-weight:700;fill:#16a34a">5</text>
+  <text x="1002" y="98" class="label">n = 5</text>
+  <text x="1002" y="120" class="small">mean age: 8.40 ± 1.50 years</text>
+  <line x1="940" y1="145" x2="1270" y2="145" stroke="#bbf7d0" stroke-width="2"/>
+  <text x="940" y="174" class="label">Reference gait characteristics</text>
+  <text x="955" y="205" class="small">• Bilateral symmetry</text>
+  <text x="955" y="230" class="small">• Regular cadence and velocity</text>
+  <text x="955" y="255" class="small">• Normal sagittal joint-angle profiles</text>
+  <text x="955" y="280" class="small">• Reference for normative comparison</text>
+</g>
+
+<!-- Bottom pipeline -->
+<rect x="45" y="670" width="1310" height="130" rx="18" class="box" filter="url(#shadow)"/>
+<text x="75" y="704" class="section">How the dataset feeds the project pipeline</text>
+
+<g transform="translate(70,725)">
+  <rect x="0" y="0" width="145" height="55" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="72" y="22" text-anchor="middle" class="label">Raw data</text>
+  <text x="72" y="42" text-anchor="middle" class="tiny">.c3d trials</text>
+
+  <path d="M155,27 L205,27" class="arrow"/>
+
+  <rect x="215" y="0" width="180" height="55" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="305" y="22" text-anchor="middle" class="label">Signals</text>
+  <text x="305" y="42" text-anchor="middle" class="tiny">angles + vertical GRF</text>
+
+  <path d="M405,27 L455,27" class="arrow"/>
+
+  <rect x="465" y="0" width="185" height="55" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="557" y="22" text-anchor="middle" class="label">Labels</text>
+  <text x="557" y="42" text-anchor="middle" class="tiny">FC/FO + group class</text>
+
+  <path d="M660,27 L710,27" class="arrow"/>
+
+  <rect x="720" y="0" width="190" height="55" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="815" y="22" text-anchor="middle" class="label">Tensors</text>
+  <text x="815" y="42" text-anchor="middle" class="tiny">windows + cycles</text>
+
+  <path d="M920,27 L970,27" class="arrow"/>
+
+  <rect x="980" y="0" width="220" height="55" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="1090" y="22" text-anchor="middle" class="label">Models</text>
+  <text x="1090" y="42" text-anchor="middle" class="tiny">gait phase + CP pattern</text>
+
+  <path d="M605,-18 C760,-55 950,-55 1080,-18" class="dash"/>
+  <text x="845" y="-33" text-anchor="middle" class="tiny">LOSO evaluation: test subject is never present in training</text>
+</g>
+
+<!-- Footer note -->
+<text x="700" y="832" text-anchor="middle" class="tiny">
+  Modeling target: binary CP vs TD and multiclass TD / HemiCP / DiCP. Sensor equivalence supports later replication with exoskeleton encoders and FSR insoles.
+</text>
+</svg>
