@@ -75,7 +75,7 @@ Segmentar automáticamente el ciclo en sus fases principales usando ángulos art
 **Tarea 2 — Clasificación de tipo de PC**
 Distinguir entre hemiplejia espástica, diplejia espástica y desarrollo típico a partir de features extraídas por ciclo.
 
-![simtk data diagram](figs/simtk_classification_stages.svg)
+![simtk data diagram](figs/simtk_classification_stages.png)
 
 **Objetivo a largo plazo**
 > Que los modelos entrenados sobre datos VICON/AMTI sean replicables con encoders y FSR del exoesqueleto pediátrico, minimizando el domain shift.
