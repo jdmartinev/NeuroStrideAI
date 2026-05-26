@@ -64,6 +64,8 @@ Además de los trials de marcha dinámica, el dataset incluye una captura estát
 | GRF — Fx, Fy, Fz | AMTI | N (o N/kg normalizado) | Derivar eventos FC/FO |
 | Datos estáticos | VICON + AMTI | — | Normalización por sujeto |
 
+!(Summary data)[figs/simTK_data.png]
+
 ---
 
 ## Siguientes pasos
