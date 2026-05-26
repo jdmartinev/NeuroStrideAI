@@ -10,7 +10,7 @@ La parálisis cerebral (PC) es un grupo de trastornos del movimiento y la postur
 
 El dataset contiene tres grupos:
 
-![sumtk data diagram](figs/simtk_cp_child_gait_dataset_diagram.svg)
+![simtk data diagram](figs/simtk_cp_child_gait_dataset_diagram.svg)
 
 ### Hemiplejia espástica — n=5, edad 9.0 ± 2.3 años
 
@@ -75,8 +75,10 @@ Segmentar automáticamente el ciclo en sus fases principales usando ángulos art
 **Tarea 2 — Clasificación de tipo de PC**
 Distinguir entre hemiplejia espástica, diplejia espástica y desarrollo típico a partir de features extraídas por ciclo.
 
+![simtk data diagram](figs/simtk_classification_stages.svg)
+
 **Objetivo a largo plazo**
-Que los modelos entrenados sobre datos VICON/AMTI sean replicables con encoders y FSR del exoesqueleto pediátrico, minimizando el domain shift.
+> Que los modelos entrenados sobre datos VICON/AMTI sean replicables con encoders y FSR del exoesqueleto pediátrico, minimizando el domain shift.
 
 ---
 
