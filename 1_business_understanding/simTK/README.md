@@ -1,62 +1,84 @@
-# Clasificación de Patrones de Marcha en Parálisis Cerebral
+# Entendimiento del problema — SimTK `cp-child-gait`
 
-### Pipeline CRISP-DM 
+## ¿Qué es la parálisis cerebral?
 
-> Proyecto piloto para el desarrollo de modelos de detección de fase de marcha y clasificación de tipo de PC, orientado a replicación en un exoesqueleto pediátrico con sensores IMU/FSR.
->
-> **Alianza:** UdeA · EAFIT · CES · ITM · UPM · Comité de Rehabilitación de Antioquia
+La parálisis cerebral (PC) es un grupo de trastornos del movimiento y la postura causados por una lesión no progresiva en el cerebro en desarrollo (prenatal, perinatal o postnatal temprana). Es la causa más común de discapacidad motora en la infancia. Las alteraciones en el control motor se manifiestan principalmente en la marcha, cuyo patrón difiere de forma característica entre subtipos clínicos.
 
 ---
 
-## Metodología
+## Grupos clínicos del dataset
 
-Este proyecto sigue la metodología **CRISP-DM** (Cross-Industry Standard Process for Data Mining), organizada en 6 fases iterativas:
+El dataset contiene tres grupos. Ver diagrama: [`diagrams/grupos_clinicos.svg`](figs/simtk_cp_child_gait_dataset_diagram.svg)
 
-| Fase | Carpeta | Descripción |
-|------|---------|-------------|
-| 1. Entendimiento del problema | `1_business_understanding/` | Contexto clínico, objetivos, criterios de éxito |
-| 2. Entendimiento de los datos | `2_data_understanding/` | EDA, calidad de señal, distribuciones |
-| 3. Preparación de datos | `3_data_preparation/` | Segmentación, etiquetado, tensores |
-| 4. Modelado | `4_modeling/` | Arquitecturas, experimentos, hiperparámetros |
-| 5. Evaluación | `5_evaluation/` | Métricas, validación cruzada, análisis de error |
-| 6. Despliegue | `6_deployment/` | Inferencia en tiempo real, protocolo para el exoesqueleto |
+### Hemiplejia espástica — n=5, edad 9.0 ± 2.3 años
 
-Cada carpeta contiene su propio `README.md` con la documentación detallada de esa fase.
+Compromiso unilateral: un lado del cuerpo (brazo y pierna del mismo lado). La marcha presenta:
 
----
+- Asimetría bilateral marcada
+- Circunducción de cadera en el lado afectado
+- Pie equino (flexión plantar)
+- Reducción del rango de flexión de rodilla en la fase de balanceo
+- Lado contralateral con marcha normal o casi normal
 
-## Estructura del repositorio
+### Diplejia espástica — n=4, edad 10.5 ± 1.7 años
 
-```
-cp-gait-crisp/
-├── 1_business_understanding/
-├── 2_data_understanding/
-├── 3_data_preparation/
-├── 4_modeling/
-├── 5_evaluation/
-├── 6_deployment/
-├── data/
-│   ├── raw/          ← Archivos .c3d originales (no versionados)
-│   ├── processed/    ← Tensores y arrays listos para modelos
-│   └── external/     ← Datasets complementarios
-├── notebooks/
-└── utils/
-```
+Compromiso bilateral con predominio en miembros inferiores. Es el subtipo más prevalente de PC espástica. Patrones de marcha comunes:
+
+- *Crouch gait*: flexión excesiva de cadera y rodilla durante todo el ciclo
+- *Stiff-knee gait*: reducción del pico de flexión de rodilla en balanceo
+- *Jump gait*: flexión de cadera y rodilla con plantar flexión simultánea
+- Marcha en tijera por aducción de cadera, base de sustentación estrecha
+
+### Desarrollo típico (control) — n=5, edad 8.4 ± 1.5 años
+
+Niños sin patología neurológica ni musculoesquelética. Sirven como referencia de normalidad.
+
+**Criterio de inclusión compartido:** sin cirugía ni toxina botulínica en los 6 meses previos.
 
 ---
 
-## Dataset
+## Clasificación funcional: GMFCS
 
-**SimTK `cp-child-gait`** — https://simtk.org/projects/cp-child-gait
+El Gross Motor Function Classification System (GMFCS) estratifica la severidad en 5 niveles. Ver diagrama: [`diagrams/gmfcs.svg`](diagrams/gmfcs.svg)
 
-Los archivos `.c3d` deben colocarse en `data/raw/` (no se incluyen en el repositorio por tamaño).
+| Nivel | Descripción |
+|-------|-------------|
+| I | Camina sin restricciones; limitaciones en habilidades avanzadas |
+| II | Camina con limitaciones en terrenos irregulares o largas distancias |
+| III | Camina con dispositivo de ayuda manual |
+| IV | Movilidad autónoma limitada; usa silla de ruedas en exteriores |
+| V | Transporte manual en todos los contextos |
+
+Los sujetos de `cp-child-gait` corresponden a **niveles I–II**. El proyecto del exoesqueleto apunta a **niveles II–IV**.
 
 ---
 
-## Instalación
+## Señales disponibles
 
-```bash
-git clone https://github.com/<org>/cp-gait-crisp.git
-cd cp-gait-crisp
-pip install -r requirements.txt
-```
+| Señal | Instrumento | Uso |
+|-------|-------------|-----|
+| Cinemática 3D (ángulos articulares) | VICON — marcadores reflectivos | Features temporales |
+| Fuerzas de reacción del suelo (GRF) | Plataformas de fuerza AMTI | Derivar eventos de marcha (FC/FO) |
+| Datos estáticos | Medición antropométrica | Normalización |
+
+Formato: `.c3d` (legible con `ezc3d` en Python).
+
+---
+
+## Objetivos de modelado
+
+**Tarea 1 — Detección de fase de marcha**
+Segmentar automáticamente el ciclo en sus fases principales usando ángulos articulares y GRF.
+
+**Tarea 2 — Clasificación de tipo de PC**
+Distinguir entre hemiplejia espástica, diplejia espástica y desarrollo típico a partir de features extraídas por ciclo.
+
+**Objetivo a largo plazo**
+Que los modelos entrenados sobre datos VICON/AMTI sean replicables con encoders y FSR del exoesqueleto pediátrico, minimizando el domain shift.
+
+---
+
+## Referencias
+
+- SimTK `cp-child-gait`: https://simtk.org/projects/cp-child-gait
+- GMFCS: Palisano et al. (1997, revisado 2007)
