@@ -256,7 +256,7 @@ La capa de proyección de entrada (Etapa 2) es el mecanismo principal para manej
 
 ---
 
-![intelevent2ferrari](figs/intelevento_to_ferrari.png)
+![intelevent2ferrari](figs/intelevent_to_ferrari.png)
 
 ---
 
