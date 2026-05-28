@@ -176,7 +176,7 @@ Este dataset es el **dominio fuente del fine-tuning** (Stage 2). Se usa para:
 El encoder resultante es el artefacto central del pipeline: un modelo capaz de proyectar un trial de marcha en un vector de embeddings que codifica el patrón de marcha del paciente.
 
 ---
-[FerrariGait19](figs/FerrariGait19.png)
+![FerrariGait19](figs/FerrariGait19.png)
 
 
 ## Referencias
