@@ -23,6 +23,8 @@ Institución: St. Pölten University of Applied Sciences + Orthopaedic Hospital 
 | Tipo de marcha | Marcha overground a velocidad preferida |
 | Captura | VICON (frecuencia no especificada en el paper, típicamente 100–200 Hz) |
 
+![Intel Event Weights](figs/IntelEventWeights.png)
+
 ---
 
 ## Sensores e instrumentación
